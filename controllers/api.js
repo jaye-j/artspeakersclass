@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 let feedbackData = require('../data/feedback.json');
 const fs = require('fs');
 
-router.use(bodyParser.json());
+
 router.use(bodyParser.urlencoded({extended: false}));
 
 
@@ -19,7 +19,7 @@ router.post('/api', (req, res) => {
     
     feedbackData.unshift(req.body)
 
-    fs.writeFile('../data/feedback.json', JSON.stringify(feedbackData), "utf8", (err) => {
+    fs.writeFile('data/feedback.json', JSON.stringify(feedbackData), "utf8", (err) => {
         
         if(err){
             console.log(err);
