@@ -19,17 +19,13 @@ router.post('/api', (req, res) => {
     
     feedbackData.unshift(req.body)
 
-    fs.writeFile('data/feedback.json', JSON.stringify(feedbackData), "utf8", (err) => {
+    fs.writeFile('/data/feedback.json', JSON.stringify(feedbackData), "utf8", (err) => {
         
         if(err){
             console.log(err);
         }
 
         res.json(feedbackData);
-    })
-
-    res.json({
-        "testing": "json data"
     });
 
 });
